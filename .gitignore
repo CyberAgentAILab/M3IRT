@@ -1,0 +1,28 @@
+# Virtual environments
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Output
+result/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Review
+docs/Review.md
+
+# OS
+.DS_Store
+Thumbs.db

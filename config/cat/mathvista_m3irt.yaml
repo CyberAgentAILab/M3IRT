@@ -1,0 +1,36 @@
+# ============================================================
+# M³-IRT CAT Experiment Config — MathVista dataset
+# ============================================================
+# Run with:
+#   m3irt-cat --config config/cat/mathvista_m3irt.yaml
+# or:
+#   uv run python -m m3irt.cli.cat --config config/cat/mathvista_m3irt.yaml
+# ============================================================
+
+dataset:
+  name: mathvista
+  normal_csv: responses/mathvista/normal_mathvista.csv
+  shuffled_csv: responses/mathvista/shuffled_mathvista.csv
+
+model:
+  type: m3irt          # m3irt | m2irt
+
+training:
+  lr: 0.01
+  batch_size: 512
+  max_epochs: 500
+  device: cpu
+  eps: 0.001
+
+grid_search:
+  scale_list: [2,4,8,16] # Max scale for M3-IRT
+
+cat:
+  extraction_range: [1, 50]    # evaluate at 1% to 50%
+  update_lr: 0.0001
+  update_max_epochs: 100
+
+experiment:
+  seed: 42
+  output_dir: result
+  cuda_device: 0

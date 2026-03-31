@@ -1,0 +1,31 @@
+# ============================================================
+# M3IRT Estimate Config — SEED-Bench dataset
+# ============================================================
+# Run with:
+#   m3irt-estimate --config config/estimate/seedbench_m3irt.yaml
+# or:
+#   uv run python -m m3irt.cli.estimate --config config/estimate/seedbench_m3irt.yaml
+# ============================================================
+
+dataset:
+  name: seedbench
+  normal_csv: responses/seedbench/normal_seedbench.csv
+  shuffled_csv: responses/seedbench/shuffled_seedbench.csv
+
+model:
+  type: m3irt
+
+training:
+  lr: 0.01
+  batch_size: 512
+  max_epochs: 500
+  device: cpu
+  eps: 0.001
+
+grid_search:
+  scale_list: [2, 4, 8, 16]
+
+experiment:
+  seed: 42
+  output_dir: result
+  cuda_device: 0

@@ -1,0 +1,58 @@
+[project]
+name = "m3irt"
+version = "0.1.0"
+description = "M3IRT: Evaluating Cross-Modal Reasoning with Multimodal Item Response Theory"
+readme = "README.md"
+requires-python = ">=3.12.6"
+license = {text = "MIT"}
+authors = [
+    {name = "Shunki Uebayashi"},
+    {name = "Kento Masui"},
+    {name = "Kyohei Atarashi"},
+    {name = "Han Bao"},
+    {name = "Hisashi Kashima"},
+    {name = "Naoto Inoue"},
+    {name = "Mayu Otani"},
+    {name = "Koh Takeuchi"},
+]
+keywords = ["item-response-theory", "multimodal", "VLM", "benchmark", "adaptive-testing"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy==2.2.3",
+    "pandas==2.2.3",
+    "ray==2.44.0",
+    "scikit-learn==1.6.1",
+    "scipy==1.15.2",
+    "torch==2.6.0",
+]
+
+[project.urls]
+Repository = "https://github.com/CyberAgentAILab/M3IRT"
+Paper = "https://arxiv.org/abs/2603.02663"
+
+[project.scripts]
+m3irt-cat = "m3irt.cli.cat:main"
+m3irt-estimate = "m3irt.cli.estimate:main"
+
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/m3irt"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.ruff.format]
+quote-style = "double"
